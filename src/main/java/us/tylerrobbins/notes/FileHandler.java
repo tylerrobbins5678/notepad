@@ -1,4 +1,4 @@
-package webappnotes;
+package us.tylerrobbins.notes;
 
 import java.io.File;
 import java.io.FileWriter;

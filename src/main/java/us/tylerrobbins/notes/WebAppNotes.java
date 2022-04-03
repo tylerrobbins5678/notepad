@@ -1,4 +1,4 @@
-package webappnotes;
+package us.tylerrobbins.notes;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class WebAppNotes {
 
 		
 		while(running) {
-			System.out.println("add note (a), delete note (d), save changes(s), view notes(v)");
+			System.out.println("add note (a), delete note (d), save changes(s), view notes(v), exit(e)");
 			String cmd = input.nextLine();
 			if(cmd.equals("s")) {
 				//save
@@ -34,6 +34,7 @@ public class WebAppNotes {
 					System.out.println("Unable to save");
 				}
 				System.out.println("Changes saved");
+			
 			}
 			else if(cmd.equals("a")) {
 				System.out.println("Enter note \n");
@@ -42,8 +43,16 @@ public class WebAppNotes {
 			}
 			else if(cmd.equals("d")) {
 				System.out.println("Enter line number");
-				int noteNumber = input.nextInt();
-				String note = input.nextLine();
+				int noteNumber;
+				
+				try {
+					noteNumber = input.nextInt();
+					input.nextLine();
+				}
+				catch(InputMismatchException e) {
+					System.out.println("invalid entry");
+					continue;
+				}
 				
 				notepad.deleteNote(noteNumber - 1);
 			}
@@ -53,6 +62,9 @@ public class WebAppNotes {
 					System.out.print(i + " : "); System.out.println(line);
 					i++;
 				}
+			}
+			else if(cmd.equals("e")) {
+				break;
 			}
 		}
 	}
