@@ -42,12 +42,8 @@ public class FileHandler {
     this.notes.add(line);
   }
 
-  public void deleteNote(int index) {
-    try {
-      this.notes.remove(index);
-    } catch (IndexOutOfBoundsException e) {
-      // invalid index do nothing
-    }
+  public void deleteNote(int index) throws IndexOutOfBoundsException {
+    this.notes.remove(index);
   }
 
   public ArrayList<String> getNotes() {

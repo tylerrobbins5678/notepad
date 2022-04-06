@@ -1,7 +1,6 @@
 package us.tylerrobbins.notes;
 
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class WebAppNotes {
@@ -43,17 +42,20 @@ public class WebAppNotes {
       } else if (cmd.equals("d")) {
         // delete by line number
         System.out.println("Enter line number");
-        int noteNumber;
+        String noteNumberStr = input.nextLine();
 
         try {
-          noteNumber = input.nextInt();
-          input.nextLine();
-        } catch (InputMismatchException e) {
-          System.out.println("invalid entry");
+          // take input from line, then convert to int
+          int noteNumberInt = Integer.parseInt(noteNumberStr);
+          notepad.deleteNote(noteNumberInt - 1);
+
+        } catch (NumberFormatException e) {
+          System.out.println("invalid entry : " + noteNumberStr);
           continue;
+        } catch (IndexOutOfBoundsException e) {
+          System.out.println("invalid line : " + noteNumberStr);
         }
 
-        notepad.deleteNote(noteNumber - 1);
       } else if (cmd.equals("v")) {
         int i = 1;
         for (String line : notepad.getNotes()) {
