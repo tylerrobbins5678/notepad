@@ -5,4 +5,14 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>web-app-notes</name>
   <description>web app notes</description>
+  <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+  <dependencies>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>5.3.18</version>
+	</dependency>
+  
+  </dependencies>
+  
 </project>
