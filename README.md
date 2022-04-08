@@ -1,2 +1,3 @@
 # notepad
-a simple project demonstrating file IO with a notepad tool 
+A simple project developed to take, modify, and delete notes.
+
