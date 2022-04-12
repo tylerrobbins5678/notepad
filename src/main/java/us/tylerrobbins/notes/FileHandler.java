@@ -29,6 +29,7 @@ public class FileHandler implements Processor {
           String line = scanner.nextLine();
           this.notes.add(line);
         }
+        scanner.close();
       }
 
     }
