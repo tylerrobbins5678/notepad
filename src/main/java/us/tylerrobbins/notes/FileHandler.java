@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class FileHandler {
+public class FileHandler implements Processor {
 
   private File file;
   private ArrayList<String> notes = new ArrayList<String>();
@@ -43,11 +43,18 @@ public class FileHandler {
   }
 
   public void deleteNote(int index) throws IndexOutOfBoundsException {
-    this.notes.remove(index);
+    this.notes.remove(index - 1);
   }
 
   public ArrayList<String> getNotes() {
-    return this.notes;
+    // engineer to streams in future
+    ArrayList<String> notes = new ArrayList<String>();
+    int i = 1;
+    for (String note : this.notes) {
+      notes.add(i + " : " + note);
+      i++;
+    }
+    return notes;
   }
 
   public void commit() throws IOException {
